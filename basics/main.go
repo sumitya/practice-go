@@ -1,4 +1,4 @@
-package main
+package basics
 
 import (
 	"errors"
@@ -108,14 +108,24 @@ func main() {
 	incr := inc
 	fmt.Println(incr(1))
 
-	// anonymous func. 
-	anonymousFunc := func(x int, y int) int {return x * y}
-	fmt.Println(anonymousFunc(2,3))
-	
+	// anonymous func.
+	anonymousFunc := func(x int, y int) int { return x * y }
+	fmt.Println(anonymousFunc(2, 3))
+
+	// array or slice
+	// arrays are fixed length collection
+	var cats [4]string
+	for i := 0; i < 4; i++ {
+		cats[i] = fmt.Sprintf("cat %d", i)
+	}
+
+	for _, cat := range cats {
+		fmt.Println(cat)
+	}
+
 }
 
-
-func inc(x int) int {return x} 
+func inc(x int) int { return x }
 
 func sum(a int, b int) int { return a + b }
 
