@@ -25,7 +25,7 @@ func (d Dog) Bark() {
 }
 
 func main() {
-	// composition, Dog is a Animal
+	// composition, Dog is an Animal
 	bullDog := Dog{
 		Animal: Animal{
 			Name:   "Buddy",
