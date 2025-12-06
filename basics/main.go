@@ -1,4 +1,4 @@
-package basics
+package main
 
 import (
 	"errors"
@@ -123,6 +123,31 @@ func main() {
 		fmt.Println(cat)
 	}
 
+	// maps in go
+	m := map[int]string{
+		1: "abc",
+		2: "pqr",
+	}
+	printer(m)
+	printer(len(m))
+	printer(m[1])
+
+	// structs
+	type Student struct {
+		FirstName string
+		LastName  string
+		ID        int
+	}
+
+	st1 := Student{
+		"sumit",
+		"yadav",
+		123,
+	}
+	printer(st1)
+}
+func printer(variable any) {
+	fmt.Println(variable)
 }
 
 func inc(x int) int { return x }
