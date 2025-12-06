@@ -23,6 +23,13 @@ func main() {
 
 	printer("abcd")
 
+	values := [][]int{[]int{1, 2}, []int{3, 4}} // two dim. int slice
+	printer(values)
+
+	aSlice := []int{3, 2, 1, 0}
+	rangeOverIntCollection(sortASlice(aSlice))
+
+	printer(reverseAString("abcd"))
 }
 
 func funcWithSliceParamPtr(arrAge *[]int) {
@@ -43,4 +50,25 @@ func rangeOverIntCollection(coll []int) {
 
 func printer(variable any) {
 	fmt.Println(variable)
+}
+
+func sortASlice(aSlice []int) []int {
+	// pass through a slice
+	for pass := 1; pass < len(aSlice); pass++ {
+		// one pass
+		for i := 0; i < len(aSlice)-pass; i++ {
+			if aSlice[i] > aSlice[i+1] {
+				aSlice[i], aSlice[i+1] = aSlice[i+1], aSlice[i]
+			}
+		}
+	}
+	return aSlice
+}
+
+func reverseAString(str string) string {
+	rns := []rune(str)
+	for i, j := 0, len(rns)-1; i < j; i, j = i+1, j-1 {
+		rns[i], rns[j] = rns[j], rns[i]
+	}
+	return string(rns)
 }
