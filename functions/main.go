@@ -30,6 +30,7 @@ func main() {
 	rangeOverIntCollection(sortASlice(aSlice))
 
 	printer(reverseAString("abcd"))
+	printer(reverseString("name"))
 }
 
 func funcWithSliceParamPtr(arrAge *[]int) {
@@ -66,9 +67,19 @@ func sortASlice(aSlice []int) []int {
 }
 
 func reverseAString(str string) string {
-	rns := []rune(str)
+	rns := []rune(str) // this convert string to slice of rune. "name" -> ['n','a','m','e']
 	for i, j := 0, len(rns)-1; i < j; i, j = i+1, j-1 {
 		rns[i], rns[j] = rns[j], rns[i]
 	}
 	return string(rns)
+}
+
+func reverseString(str string) string {
+	runs := []rune(str)
+
+	for i, j := 0, len(runs)-1; i < j; i, j = i+1, j-1 {
+		runs[i], runs[j] = runs[j], runs[i]
+	}
+
+	return string(runs)
 }

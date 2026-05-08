@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main_bkp() {
+func mainBkp() {
 	go printer()
 
 	go func(a int) {

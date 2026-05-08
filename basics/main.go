@@ -32,7 +32,7 @@ func main() {
 	fmt.Println(10 > 5 && 10 < 5)
 	fmt.Println(10 > 5 || 10 < 5)
 	fmt.Println(!(10 > 5))
-	fmt.Println(4 >> 2) // left shift bits by 2^i, i = 2 here
+	fmt.Println(4 >> 2) // right shift bits by 2^i, i = 2 here
 
 	// strings
 	var str string = `hello`
@@ -74,7 +74,7 @@ func main() {
 	}
 
 	// calling func.
-	res, err := sample_function(1, 2)
+	res, err := sampleFunction(1, 2)
 	fmt.Printf("%d %v\n", res, err.Error())
 
 	// calling factorial
@@ -123,11 +123,27 @@ func main() {
 		fmt.Println(cat)
 	}
 
+	//array in go, they are fixed length
+	arr := [3]int{1, 2, 3}
+	fmt.Println(arr)
+
+	// slice in go, they are dyamic in size
+	slice := []int{1, 2, 3}
+	fmt.Println(slice)
+
 	// maps in go
 	m := map[int]string{
 		1: "abc",
 		2: "pqr",
 	}
+
+	// declare and init. map
+	declaredMap := make(map[int]string)
+	fmt.Println(declaredMap)
+
+	//declare with init. capacity
+	mapthWithInitSize := make(map[int]string, 10)
+	fmt.Println(mapthWithInitSize)
 	printer(m)
 	printer(len(m))
 	printer(m[1])
@@ -145,6 +161,13 @@ func main() {
 		123,
 	}
 	printer(st1)
+
+	st2 := Student{
+		FirstName: "sum",
+		LastName:  "ya",
+		ID:        456,
+	}
+	fmt.Println(st2)
 }
 func printer(variable any) {
 	fmt.Println(variable)
@@ -154,9 +177,9 @@ func inc(x int) int { return x }
 
 func sum(a int, b int) int { return a + b }
 
-func sample_function(a int, b int) (int, error) {
+func sampleFunction(a int, b int) (int, error) {
 
-	return 1, errors.New("error")
+	return a + b, errors.New("error")
 }
 
 func factorialIterative(n int) int {
